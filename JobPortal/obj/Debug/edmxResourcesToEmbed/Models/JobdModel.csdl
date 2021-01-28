@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyLogo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyWebsite" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequiredExp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Technology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JobOpening" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShiftTiming" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Shift" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JobCreateDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="SalaryRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="SkillId" Type="Int32" />
+    <Property Name="ExpYear" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="JobsDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <FunctionImport Name="getJobs" ReturnType="Collection(JobdModel.getJobs_Result)">
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="SkillId" Mode="In" Type="Int32" />
+      <Parameter Name="ExpYear" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getJobs1" ReturnType="Collection(JobdModel.getJobs1_Result)">
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="SkillId" Mode="In" Type="Int32" />
+      <Parameter Name="ExpYear" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="getJobs_Result">
+    <Property Type="String" Name="JobTitle" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
+    <Property Type="String" Name="Area" Nullable="true" />
+    <Property Type="String" Name="SalaryRange" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="RequiredExp" Nullable="true" />
+    <Property Type="String" Name="CompanyWebsite" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="getJobs1_Result">
+    <Property Type="String" Name="JobTitle" Nullable="true" />
+    <Property Type="String" Name="City" Nullable="true" />
+    <Property Type="String" Name="Area" Nullable="true" />
+    <Property Type="String" Name="SalaryRange" Nullable="true" />
+    <Property Type="String" Name="Country" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="String" Name="RequiredExp" Nullable="true" />
+    <Property Type="DateTime" Name="JobCreateDate" Nullable="false" />
+    <Property Type="String" Name="Technology" Nullable="true" />
+    <Property Type="String" Name="JobOpening" Nullable="true" />
+    <Property Type="String" Name="ShiftTiming" Nullable="true" />
+    <Property Type="String" Name="CompanyWebsite" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ContactNo" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Shift" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+</Schema>

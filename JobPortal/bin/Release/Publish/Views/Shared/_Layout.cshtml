@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    <meta charset="utf-8">
+    <title>Jober - Elegant Job Board Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+
+    <style>
+        p {
+            color: black;
+        }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <!-- Core CSS -->
+    <!-- Google Fonts here -->
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,100italic,300,100,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body class="dark-theme" style="padding-top:50px;margin-top:50px" ng-app="myApp" ng-controller="customersCtrl">
+
+
+
+    <section>
+        <div class="container">
+            <form>
+                <ul class="search-form-area">
+                    <li><i class="fa fa-search"></i></li>
+                    <li>
+                        <select class="text-field-box">
+                            <option value="-1">Experience</option>
+                            <option value="-1">Fresher</option>
+                            <option value="0">Less than year</option>
+                            <option value="1">1+Year</option>
+                            <option value="2">2+Year</option>
+                            <option value="3">3+Year</option>
+                            <option value="4">4+Year</option>
+                            <option value="5">5+Year</option>
+                            <option value="5">6 and above
+                            <option>
+                        </select>
+                    </li>
+
+                    <li>
+                        <select class="text-field-box">
+                            <option value="-1">Experience</option>
+                            <option value="-1">Fresher</option>
+                            <option value="0">Less than year</option>
+                            <option value="1">1+Year</option>
+                            <option value="2">2+Year</option>
+                            <option value="3">3+Year</option>
+                            <option value="4">4+Year</option>
+                            <option value="5">5+Year</option>
+                            <option value="5">6 and above
+                            <option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="text-field-box">
+                            <option>All Locations</option>
+                            <option value="0">Ahmedabad</option>
+                            <option value="1">Baroda</option>
+                            <option value="2">Pune</option>
+                            <option value="3">Banglore</option>
+                        </select>
+                    </li>
+                    <li><button class="button-medium" ng-click="SearchJob()">Search</button></li>
+                </ul>
+            </form>
+        </div>
+    </section>
+    <div>
+
+        <section class="content-area-sec">
+            <!-- Start:Jobs Area-->
+            <div class="container">
+                <div class="content-area">
+                    @RenderBody()
+
+                    <div class="content-area-jobs">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div class="jobs-details-sec">
+                                <!-- Start:Job 1 -->
+
+                                <div  style="color:black">
+                                    <a href="#">
+                                        <div class="info-box">
+                                            <div class="title-div temporary">
+                                                <h6>UI / UX Designer <span class="highlight"><i class="fa fa-bookmark"></i> Temporary</span></h6>
+                                            </div>
+
+                                            <div class="full-div">
+                                                <p><h4> Title</h4> </p>
+                                                <h6 style="color:blue"> CompanyName  </h6>
+                                                <hp> www.google.com</hp>
+                                                <p>9898223443</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+
+                                <div ng-repeat="x in jobs" style="color:black">
+                                    <a href="#">
+                                        <div class="info-box">
+                                            <div class="title-div temporary">
+                                                <h6>UI / UX Designer <span class="highlight"><i class="fa fa-bookmark"></i> Temporary</span></h6>
+                                            </div>
+
+                                            <div class="full-div">
+                                                <p><h4> {{x.JobTitle}}</h4> </p>
+                                                <h6 style="color:blue"> {{x.CompanyName}}  </h6>
+                                                <hp> {{x.CompanyWebsite}} </hp>
+                                                <p>{{x.ContactNo}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- End:Job 1 -->
+                                @*<div class="heading-dft"><h4><span>Recent</span> Jobs</h4></div>
+        <div class="heading-dft"><h6>We found <span>30 </span>available job(s) for you</h6></div>*@
+
+                                @*<a class="button-large left" href="#">Load More</a>*@
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End:Jobs Area-->
+                </div>
+
+        </section>
+    </div>
+
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.js"></script><!-- Owl Carousel Js -->
+    <script type="text/javascript" src="js/owl-carousel-settings.js"></script><!-- Owl Carousel Settings Js -->
+    <script type="text/javascript" src="js/jquery.flexslider.js"></script><!-- Flexslider Settings Js -->
+    <script type="text/javascript" src="js/mini-grid.js"></script><!-- Mini Master Grid Js -->
+    <script type="text/javascript" src="js/settings.js"></script><!-- Settings Js -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script><!-- Bootstrap Js -->
+    <script type="text/javascript" src="js/featherlight.min.js"></script><!-- Feather-Lightbox (projects) Js -->
+    <script type="text/javascript" src="js/forms.js"></script><!-- Form Js -->
+    <script type="text/javascript" src="js/animation.js"></script><!-- Animation Js -->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+
+
+        app.controller('customersCtrl', ['$scope', '$http', function ($scope, $http) {
+            $scope.SearchJob = function () {
+
+                $http.get("http://data.angular-jobs.in/api/jobs")
+                    .then(function (response) {
+                        $scope.jobs = response.data;
+
+                    });
+            }
+
+        }]);
+
+
+    </script>
+</body>
+</html>
